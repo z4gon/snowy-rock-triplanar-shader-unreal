@@ -8,14 +8,14 @@ Implemented with Triplanar Projection and Normals Orientation in **Unreal Engine
 ![Gif](./docs/1.gif)
 
 ### Table of Content
-
-- [Snowy Rock Triplanar Shader](#snowy-rock-triplanar-shader)
-  - [Screenshots](#screenshots)
-    - [Table of Content](#table-of-content)
-    - [Resources](#resources)
-  - [Implementation](#implementation)
-    - [Step 1](#step-1)
-      - [Step A](#step-a)
+- [Implementation](#implementation)
+  - [Model Meshes](#model-meshes)
+  - [Materials](#materials)
+    - [Basic Rock](#basic-rock)
+    - [Triplanar Projection](#triplanar-projection)
+    - [Normal Masking](#normal-masking)
+  - [Material Function](#material-function)
+  - [Material Instances](#material-instances) 
 
 ### Resources
 
@@ -25,19 +25,74 @@ Implemented with Triplanar Projection and Normals Orientation in **Unreal Engine
 - [Snow Texture](https://3dtextures.me/2018/02/27/snow-002/)
 
 ## Implementation
-### Step 1
-#### Step A
+### Model Meshes
 
-1. Implementation detail.
-1. Implementation detail.
-1. Implementation detail.
+- Model Meshes in Blender for the Rocks and the Ground.
+- Use subdivision modifier and smooth shading.
 
-```c
-half4 some_shader_code()
-{
-    return half4(1,1,1,1);
-}
-```
+![Picture](./docs/2.png)
+![Picture](./docs/3.png)
+![Picture](./docs/6.png)
 
-![Gif](./docs/1.gif)
-![Gif](./docs/1.gif)
+- Export as FBX and then import into Unreal Engine.
+  
+![Picture](./docs/7.png)
+![Picture](./docs/8.png)
+
+- Ensure Normals are pointing to the right direction.
+- Setup the scene.
+  
+![Picture](./docs/9.png)
+![Picture](./docs/10.png)
+
+### Materials
+#### Basic Rock
+
+- Implement a basic material using each of the textures for the corresponding property in the shader.
+
+![Picture](./docs/11.png)
+
+#### Triplanar Projection
+
+- Use the **World Position** vector to sample the texture 2D, using the plane coordinates as if they were UV coordinates.
+- Using the Red and Green channels means using the X,Y plane, thus projecting from the Z direction (Up, Down).
+- This projection doesn't depend on object scale, UV maps, or anything.
+
+![Picture](./docs/12.png)
+![Picture](./docs/13.png)
+
+- Repeating the process for all the 3 dimensions gives us the 3 projections we need.
+
+![Picture](./docs/14.png)
+
+#### Normal Masking
+
+- To blend together the 3 projections, we need to use the normals directions.
+- Getting the absolute value of the Blue coordinate of the Normals, gives us a mask to blend in the Z projection.
+- Using a power function we make the blending band smoother.
+
+![Picture](./docs/15.png)
+![Picture](./docs/16.png)
+
+- Multiplying each mask to the corresponding projection, then blending them all together by adding the colors, gives us the triplanar projection.
+
+![Picture](./docs/17.png)
+
+### Material Function
+
+- Extracting a set of nodes into a sub graph means creating a **Material Function**.
+- This function has inputs and outputs.
+- We can then reuse this in other materials.
+- In the main **Triplanar Surface** **Material**, we now use the **Triplanar Projection** **Material Function** for each of the texures.
+
+![Picture](./docs/18.png)
+![Picture](./docs/19.png)
+
+### Material Instances
+
+- By making instances of a base material, we just change the parametrized textures and values.
+
+![Picture](./docs/20.png)
+![Picture](./docs/21.png)
+![Picture](./docs/22.png)
+
