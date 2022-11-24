@@ -20,7 +20,8 @@ Implemented with Triplanar Projection and Normals Orientation in **Unreal Engine
 ### Resources
 
 - [Unreal Engine Materials Course by Timothy Trankle](https://www.udemy.com/course/unlocking-the-unreal-engine-material-editor)
-- [Rock Texure](https://3dtextures.me/2022/03/31/rock-046/)
+- [Rock Texure](https://3dtextures.me/2022/03/03/rock-044/)
+- [Ground Texture](https://3dtextures.me/2022/04/27/gravel-001/)
 - [Snow Texture](https://3dtextures.me/2018/02/27/snow-002/)
 
 ## Implementation
