@@ -4,6 +4,8 @@ Implemented with Triplanar Projection and Normals Orientation in **Unreal Engine
 
 ## Screenshots
 
+![Picture](./docs/24.png)
+
 ### Table of Content
 - [Implementation](#implementation)
   - [Model Meshes](#model-meshes)
@@ -18,6 +20,7 @@ Implemented with Triplanar Projection and Normals Orientation in **Unreal Engine
   - [Snow Material](#snow-material)
   - [Snowy Rock Material](#snowy-rock-material)
     - [Snow and Rock Material Functions](#snow-and-rock-material-functions)
+    - [Masking Roughness](#masking-roughness)
 
 ### Resources
 
@@ -113,3 +116,26 @@ Implemented with Triplanar Projection and Normals Orientation in **Unreal Engine
 
 ![Picture](./docs/17.png)
 ![Picture](./docs/18.png)
+
+#### Masking Roughness
+
+- Use a texture to clamp values of 0,1 based on the threshold desired for the amount of snow.
+
+![Picture](./docs/19.png)
+
+- Mask again, this time using the Blue channel of the vertex normal, to just get the sides that are pointing up in world space.
+
+![Picture](./docs/20.png)
+
+- Use a height map to make the transition more natural, following the shapes of the texture.
+
+![Picture](./docs/21.png)
+
+- Multiply all these masks together to get the final mask used to blend the two **Material Properties**.
+
+![Picture](./docs/22.png)
+![Picture](./docs/23.png)
+
+- Final result.
+
+![Picture](./docs/24.png)
