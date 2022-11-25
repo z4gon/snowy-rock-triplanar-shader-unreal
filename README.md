@@ -9,18 +9,20 @@ Implemented with Triplanar Projection and Normals Orientation in **Unreal Engine
   - [Model Meshes](#model-meshes)
   - [Setup Scene](#setup-scene)
   - [Import Textures](#import-textures)
-  - [Materials](#materials)
+  - [Rock Material](#rock-material)
     - [Basic Rock](#basic-rock)
-    - [Triplanar Projection](#triplanar-projection)
-    - [Normal Masking](#normal-masking)
-  - [Material Function](#material-function)
+    - [Triplanar Projection Material](#triplanar-projection-material)
+      - [Normal Masking](#normal-masking)
+      - [TriplanarProjection Material Function](#triplanarprojection-material-function)
   - [Material Instances](#material-instances) 
+  - [Snow Material](#snow-material)
+  - [Snowy Rock Material](#snowy-rock-material)
+    - [Snow and Rock Material Functions](#snow-and-rock-material-functions)
 
 ### Resources
 
 - [Unreal Engine Materials Course by Timothy Trankle](https://www.udemy.com/course/unlocking-the-unreal-engine-material-editor)
 - [Rock Texure](https://3dtextures.me/2022/03/03/rock-044/)
-- [Ground Texture](https://3dtextures.me/2022/04/27/gravel-001/)
 - [Snow Texture](https://3dtextures.me/2018/02/27/snow-002/)
 
 ## Implementation
@@ -43,14 +45,14 @@ Implemented with Triplanar Projection and Normals Orientation in **Unreal Engine
 
 ### Import Textures
 
-### Materials
+### Rock Material
 #### Basic Rock
 
 - Implement a basic material using each of the textures for the corresponding property in the shader.
 
 ![Picture](./docs/4.png)
 
-#### Triplanar Projection
+#### Triplanar Projection Material
 
 - Use the **World Position** vector to sample the texture 2D, using the plane coordinates as if they were UV coordinates.
 - Using the Red and Green channels means using the X,Y plane, thus projecting from the Z direction (Up, Down).
@@ -63,7 +65,7 @@ Implemented with Triplanar Projection and Normals Orientation in **Unreal Engine
 
 ![Picture](./docs/7.png)
 
-#### Normal Masking
+##### Normal Masking
 
 - To blend together the 3 projections, we need to use the normals directions.
 - Getting the absolute value of the Blue coordinate of the Normals, gives us a mask to blend in the Z projection.
@@ -76,7 +78,7 @@ Implemented with Triplanar Projection and Normals Orientation in **Unreal Engine
 
 ![Picture](./docs/10.png)
 
-### Material Function
+##### TriplanarProjection Material Function
 
 - Extracting a set of nodes into a sub graph means creating a **Material Function**.
 - This function has inputs and outputs.
@@ -89,7 +91,25 @@ Implemented with Triplanar Projection and Normals Orientation in **Unreal Engine
 ### Material Instances
 
 - By making instances of a base material, we just change the parametrized textures and values.
+- Make a material instance of the Triplanar Surface Material, to implement the Rock Material Instance.
 
 ![Picture](./docs/13.png)
 ![Picture](./docs/14.png)
 
+### Snow Material
+
+- Implement a new **Material** using the **TriplanarProjection** **Material Function**.
+- Change the light model to **Subsurface**, for subsurface scattering.
+- The **Subsurface **Color represents the subsurface scattering color.
+- **Opacity** will dictate how much subsurface scattering will happen.
+
+![Picture](./docs/15.png)
+![Picture](./docs/16.png)
+
+### Snowy Rock Material
+#### Snow and Rock Material Functions
+
+- Implement two **Material Functions** that will output **MakeMaterialAttributes** for both the **Snow** and **Rock** **Materials**.
+
+![Picture](./docs/17.png)
+![Picture](./docs/18.png)
