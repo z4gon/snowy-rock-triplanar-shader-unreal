@@ -6,11 +6,10 @@ Implemented with Triplanar Projection and Normals Orientation in **Unreal Engine
 
 ![Picture](./docs/24.jpg)
 
-
 https://user-images.githubusercontent.com/4588601/204041568-94ed3589-7bbd-4e1e-b676-39c586320045.mp4
 
-
 ### Table of Content
+
 - [Implementation](#implementation)
   - [Model Meshes](#model-meshes)
   - [Setup Scene](#setup-scene)
@@ -20,7 +19,7 @@ https://user-images.githubusercontent.com/4588601/204041568-94ed3589-7bbd-4e1e-b
     - [Triplanar Projection Material](#triplanar-projection-material)
       - [Normal Masking](#normal-masking)
       - [TriplanarProjection Material Function](#triplanarprojection-material-function)
-  - [Material Instances](#material-instances) 
+  - [Material Instances](#material-instances)
   - [Snow Material](#snow-material)
   - [Snowy Rock Material](#snowy-rock-material)
     - [Snow and Rock Material Functions](#snow-and-rock-material-functions)
@@ -33,6 +32,7 @@ https://user-images.githubusercontent.com/4588601/204041568-94ed3589-7bbd-4e1e-b
 - [Snow Texture](https://3dtextures.me/2018/02/27/snow-002/)
 
 ## Implementation
+
 ### Model Meshes
 
 - Model Meshes in Blender for the Rocks and the Ground.
@@ -41,7 +41,7 @@ https://user-images.githubusercontent.com/4588601/204041568-94ed3589-7bbd-4e1e-b
 ![Picture](./docs/1.jpg)
 
 - Export as FBX and then import into Unreal Engine.
-  
+
 ![Picture](./docs/2.jpg)
 
 ### Setup Scene
@@ -50,9 +50,18 @@ https://user-images.githubusercontent.com/4588601/204041568-94ed3589-7bbd-4e1e-b
 
 ![Picture](./docs/3.jpg)
 
+- **Directinal Light** to simulate the Sun.
+- **Exponential Height Fog** to replace the default black background.
+- **Sky Atmosphere** to simulate the Sky Box.
+- **Sky Light** for Ambient Lighting.
+- **Post Processing Volume** to tweak the Auto Exposure.
+
+![Picture](./docs/25.jpg)
+
 ### Import Textures
 
 ### Rock Material
+
 #### Basic Rock
 
 - Implement a basic material using each of the textures for the corresponding property in the shader.
@@ -114,6 +123,7 @@ https://user-images.githubusercontent.com/4588601/204041568-94ed3589-7bbd-4e1e-b
 ![Picture](./docs/16.jpg)
 
 ### Snowy Rock Material
+
 #### Snow and Rock Material Functions
 
 - Implement two **Material Functions** that will output **MakeMaterialAttributes** for both the **Snow** and **Rock** **Materials**.
