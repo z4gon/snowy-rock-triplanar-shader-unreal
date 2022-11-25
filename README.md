@@ -48,7 +48,7 @@ Implemented with Triplanar Projection and Normals Orientation in **Unreal Engine
 
 - Implement a basic material using each of the textures for the corresponding property in the shader.
 
-![Picture](./docs/11.png)
+![Picture](./docs/4.png)
 
 #### Triplanar Projection
 
@@ -56,12 +56,12 @@ Implemented with Triplanar Projection and Normals Orientation in **Unreal Engine
 - Using the Red and Green channels means using the X,Y plane, thus projecting from the Z direction (Up, Down).
 - This projection doesn't depend on object scale, UV maps, or anything.
 
-![Picture](./docs/12.png)
-![Picture](./docs/13.png)
+![Picture](./docs/5.png)
+![Picture](./docs/6.png)
 
 - Repeating the process for all the 3 dimensions gives us the 3 projections we need.
 
-![Picture](./docs/14.png)
+![Picture](./docs/7.png)
 
 #### Normal Masking
 
@@ -69,12 +69,12 @@ Implemented with Triplanar Projection and Normals Orientation in **Unreal Engine
 - Getting the absolute value of the Blue coordinate of the Normals, gives us a mask to blend in the Z projection.
 - Using a power function we make the blending band smoother.
 
-![Picture](./docs/15.png)
-![Picture](./docs/16.png)
+![Picture](./docs/8.png)
+![Picture](./docs/9.png)
 
 - Multiplying each mask to the corresponding projection, then blending them all together by adding the colors, gives us the triplanar projection.
 
-![Picture](./docs/17.png)
+![Picture](./docs/10.png)
 
 ### Material Function
 
@@ -83,14 +83,13 @@ Implemented with Triplanar Projection and Normals Orientation in **Unreal Engine
 - We can then reuse this in other materials.
 - In the main **Triplanar Surface** **Material**, we now use the **Triplanar Projection** **Material Function** for each of the texures.
 
-![Picture](./docs/18.png)
-![Picture](./docs/19.png)
+![Picture](./docs/11.png)
+![Picture](./docs/12.png)
 
 ### Material Instances
 
 - By making instances of a base material, we just change the parametrized textures and values.
 
-![Picture](./docs/20.png)
-![Picture](./docs/21.png)
-![Picture](./docs/22.png)
+![Picture](./docs/13.png)
+![Picture](./docs/14.png)
 
