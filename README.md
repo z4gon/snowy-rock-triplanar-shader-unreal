@@ -50,7 +50,7 @@ https://user-images.githubusercontent.com/4588601/204041568-94ed3589-7bbd-4e1e-b
 
 ![Picture](./docs/3.jpg)
 
-- **Directinal Light** to simulate the Sun.
+- **Directional Light** to simulate the Sun.
 - **Exponential Height Fog** to replace the default black background.
 - **Sky Atmosphere** to simulate the Sky Box.
 - **Sky Light** for Ambient Lighting.
