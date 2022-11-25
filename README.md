@@ -4,12 +4,11 @@ Implemented with Triplanar Projection and Normals Orientation in **Unreal Engine
 
 ## Screenshots
 
-![Gif](./docs/1.gif)
-![Gif](./docs/1.gif)
-
 ### Table of Content
 - [Implementation](#implementation)
   - [Model Meshes](#model-meshes)
+  - [Setup Scene](#setup-scene)
+  - [Import Textures](#import-textures)
   - [Materials](#materials)
     - [Basic Rock](#basic-rock)
     - [Triplanar Projection](#triplanar-projection)
@@ -28,22 +27,18 @@ Implemented with Triplanar Projection and Normals Orientation in **Unreal Engine
 ### Model Meshes
 
 - Model Meshes in Blender for the Rocks and the Ground.
-- Use subdivision modifier and smooth shading.
+- Ensure Normals are pointing to the right direction.
 
-![Picture](./docs/2.png)
-![Picture](./docs/3.png)
-![Picture](./docs/6.png)
+![Picture](./docs/1.png)
 
 - Export as FBX and then import into Unreal Engine.
   
 ![Picture](./docs/7.png)
 ![Picture](./docs/8.png)
 
-- Ensure Normals are pointing to the right direction.
-- Setup the scene.
-  
-![Picture](./docs/9.png)
-![Picture](./docs/10.png)
+### Setup Scene
+
+### Import Textures
 
 ### Materials
 #### Basic Rock
