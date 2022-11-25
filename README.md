@@ -33,10 +33,13 @@ Implemented with Triplanar Projection and Normals Orientation in **Unreal Engine
 
 - Export as FBX and then import into Unreal Engine.
   
-![Picture](./docs/7.png)
-![Picture](./docs/8.png)
+![Picture](./docs/2.png)
 
 ### Setup Scene
+
+- Set the terrain and the rocks.
+
+![Picture](./docs/3.png)
 
 ### Import Textures
 
